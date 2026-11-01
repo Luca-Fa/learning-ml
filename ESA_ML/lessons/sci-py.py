@@ -102,3 +102,8 @@ plt.grid()
 
 plt.tight_layout()
 plt.show()
+
+"""
+Now that we have reviewed the basics of our libraries, lets complete a mini project to put our knowledge into practice.
+See you at ESA_ML\\projects\\spectral_analysis\\README.md for the next steps.
+"""
