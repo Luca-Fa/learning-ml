@@ -39,6 +39,8 @@ Jupyter notebooks used for experimentation, visualization, and exploration.
 
 Practical projects applying concepts learned in the lessons.
 
+The pratical projet will manipulate a paricular dataset of a multispectral analysis and the model will have to recognize minerals that are mostly present.
+
 ## Objective
 
 Build practical skills in:
