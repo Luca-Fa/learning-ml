@@ -1,6 +1,6 @@
 # Spectral Analysis Project
 
-*This topic is AI generated*
+*Educational project inspired by planetary spectroscopy and scientific data analysis.*
 
 ## Overview
 
@@ -24,8 +24,8 @@ The workflow follows a typical scientific process:
 
 ```text
 ESA_ML/projects/spectral-analysis/
-├── spectral-analysis.py
-├── spectral-dataset-generator.py
+├── spectral_analysis.py
+├── spectral_dataset_generator.py
 └── README.md
 
 ESA_ML/datasets/projects/spectral-analysis/
@@ -38,11 +38,12 @@ ESA_ML/datasets/projects/spectral-analysis/
 
 The dataset contains several simulated rock samples.
 
-Each sample is described by its spectral response at different wavelengths:
+Each sample is described by its mineral class and spectral response at different wavelengths.
 
 | Column | Description |
 |----------|----------|
 | sample_id | Sample identifier |
+| mineral | Mineral class |
 | w450 | Intensity measured at 450 nm |
 | w550 | Intensity measured at 550 nm |
 | w650 | Intensity measured at 650 nm |
@@ -52,8 +53,8 @@ Each sample is described by its spectral response at different wavelengths:
 Example:
 
 ```text
-sample_id,w450,w550,w650,w750,w850
-R1,0.72,0.65,0.34,0.82,0.91
+sample_id,mineral,w450,w550,w650,w750,w850
+R0001,Olivine,0.72,0.65,0.34,0.82,0.91
 ```
 
 ---
@@ -108,6 +109,19 @@ To reproduce realistic scientific datasets, the data intentionally includes:
 
 These imperfections allow the implementation of data cleaning and validation procedures before further analysis.
 
+---
+
+## Objectives
+
+The purpose of this analysis is to answer the following questions:
+
+- Are there missing values in the dataset?
+- Are there abnormal measurements?
+- Do some spectral bands exhibit strong correlations?
+- Can different minerals be distinguished through their spectral signatures?
+
+---
+
 ## Why This Project?
 
 The project is inspired by scientific workflows used in planetary exploration and remote sensing.
@@ -133,12 +147,6 @@ This project serves as preparation for future machine learning exercises involvi
 
 ---
 
-## Next Step
-
-After this exploratory analysis, the next stage consists of training a machine learning model capable of automatically classifying spectral samples based on their measurements.
-
----
-
 ## Expected Outputs
 
 The analysis should produce:
@@ -150,3 +158,18 @@ The analysis should produce:
 - Outlier detection visualizations
 
 The generated outputs help understand the structure and quality of the dataset before applying machine learning techniques.
+
+---
+
+## Next Step
+
+After this exploratory analysis, the next stage consists of training a machine learning model capable of automatically classifying spectral samples based on their measurements.
+
+Future projects will introduce:
+
+- Data preprocessing
+- Feature engineering
+- Classification algorithms
+- Model evaluation
+- Deep learning techniques
+- Planetary mineral recognition
