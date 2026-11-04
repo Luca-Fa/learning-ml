@@ -78,8 +78,33 @@ if dataframe is not None:
             if pd.isnull(dataframe.loc[idx, wavelength]):
                 dataframe.loc[idx, wavelength] = avg_intensity_map[mineral][wavelength]
 
+    # We can now check if there are still any missing values in the dataset
+    if dataframe.isnull().sum().sum() == 0:
+        print("All missing values have been filled successfully!")
+        # Lets now define what is mathematically an outlier in this context.
+        #     For this project, we will consider any value that is more than 3 standard deviations from the mean.
+        #     Here is the expression:
+        #       |value - mean| > 3 * std, std = sqrt(variance) and variance = sum((value - mean)^2) / n, where n is the number of values in the dataset.
+        #     where 'mean' is the average value of the dataset and 'std' is the standard deviation of the dataset.
+
+        # If we really have outliers, this means that minerals might have been misclassified
+        # For the exercise, we have replaced missing values too early, and the calculation of the mean might be biased by the outliers, so we will have to recalculate the mean and std after removing the outliers.
+
+        for row in dataframe.itertuples():
+            for wavelength in list_of_wavelenghts:
+                value = getattr(row, wavelength)
+                mean = dataframe[wavelength].mean()
+                std = dataframe[wavelength].std()
+                if abs(value - mean) > 3 * std:
+                    print(f"Outlier detected at index {row.Index} for wavelength {wavelength}: {value}")
+                    # Remove the outlier from the dataset
+                    dataframe = dataframe[dataframe[wavelength] != value]
+                    # Lets expose the value vs the mean and std
+                    print(f"-> Mean: {mean}, Std: {std}, Value: {value}")
                 
-        
+
+    else:
+        print("There are still some missing values in the dataset.")
 
 
 
